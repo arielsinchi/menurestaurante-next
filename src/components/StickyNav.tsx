@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 interface StickyNavProps {
   categories: Category[];
-  activeCategory?: string | null;
+  activeCategory: string;
   onCategoryClick: (categoryId: string) => void;
 }
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { Category } from "../types/menu";
+import { Category } from "'types/menu'";
 import { useState, useEffect } from "react";
 import StickyNav from "./StickyNav";
 
@@ -21,7 +21,6 @@ const Navigation = ({ categories }: NavigationProps) => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 100;
       let found = false;
-      let newActiveCategory: string | null = null;
 
       for (let i = categories.length - 1; i >= 0; i--) {
         const section = document.getElementById(categories[i].id);
@@ -30,14 +29,13 @@ const Navigation = ({ categories }: NavigationProps) => {
           const absoluteTop = window.scrollY + rect.top;
           
           if (scrollPosition >= absoluteTop) {
-            newActiveCategory = categories[i].id;
-            found = true;
+            if (!found) {
+              setActiveCategory(categories[i].id);
+              found = true;
+            }
             break;
           }
         }
-      }
-      if (found) {
-        setActiveCategory(newActiveCategory);
       }
     };
 

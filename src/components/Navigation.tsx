@@ -1,6 +1,6 @@
 "use client";
 
-import { Category } from '@/types/menu';
+import { Category } from "'types/menu'";
 import { useState, useEffect } from "react";
 import StickyNav from "./StickyNav";
 
@@ -150,7 +150,7 @@ const Navigation = ({ categories }: NavigationProps) => {
       </header>
       <StickyNav 
         categories={categories} 
-        activeCategory={activeCategory || ''} 
+        activeCategory={activeCategory} 
         onCategoryClick={handleCategoryClick}
       />
     </>
